@@ -1,12 +1,16 @@
 import { Component } from '@angular/core';
+import { CourseService } from '../services/course.service';
 
 @Component({
-  // tslint:disable-next-line:component-selector
-  selector: 'courses',
-  templateUrl: '../html/courses.component.html'
+  selector: 'app-courses',
+  templateUrl: '../../html/courses.component.html'
 })
 
 export class CoursesComponent {
   title = 'The title of courses page';
-  courses = ['Course1', 'Course2', 'Course3'];
+  courses;
+
+  constructor(courseService: CourseService) {
+    this.courses = courseService.getCourses();
+  }
 }

@@ -3,20 +3,29 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { AppComponent } from './app.component';
-import {CoursesComponent} from './courses.component';
+import { AppComponent } from './components/app.component';
+import {CoursesComponent} from './components/courses.component';
+import {AuthorsComponent} from './components/authors.component';
+import {AutoGrowDirective} from './directive/auto-grow.directive';
+import {CourseService} from './services/course.service';
+import {AuthorService} from './services/author.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CoursesComponent
+    CoursesComponent,
+    AuthorsComponent,
+    AutoGrowDirective
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [
+    CourseService,
+    AuthorService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
